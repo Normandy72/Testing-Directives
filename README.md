@@ -43,3 +43,12 @@ it('should property insert content', function(){
     expect(elem.html()).toContain(expectedHtml);
 });
 ```
+***
+#### _Summary_
+* Use mock inject to inject `$rootScope` and `$compile` services in beforeEach.
+* If directive uses templateUrl, use some method to place the template contents into `$templateCache`.
+* In the test method, place whatever props are needed for the directive on the `$rootScope`.
+* Use `$compile` service to compile directive string and then using the returned function to bind with data by passing in `$rootScope`.
+* Call `$rootScope.digest()` to update the compiled HTML.
+* Retrieve produced HTML with `.html()` method and compare.
+***
